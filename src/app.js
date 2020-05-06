@@ -4,6 +4,9 @@ const hbs = require('hbs')
 const geocode = require('./utils/geocode.js')
 const forecast = require('./utils/forecast.js')
 
+console.log('port is ' + process.env.PORT)
+const port = process.env.PORT || 3000
+
 // Define path for express opath
 const viewPath = path.join(__dirname,'../templates/views')
 const publicPath = path.join(__dirname,'../public')
@@ -78,7 +81,7 @@ app.get('/weather',(req,res) => {
         })
      })
 })
-
+ 
 
 app.get('/help/*',(req,res)=> {
     res.render('404',{
@@ -99,7 +102,8 @@ app.get('*',(req,res)=> {
 )
 
 
+// app.listen(3000,() => {
 
-app.listen(3000,() => {
-    console.log('Server is up on 3000')
+app.listen(port,() => {
+    console.log('Server is up on ' + port)
 })
