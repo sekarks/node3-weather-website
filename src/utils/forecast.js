@@ -8,7 +8,7 @@ const forecast = (latitude,longitute, callback) => {
        if (error) {
          callback('Unable to connect weather services... ')        
         } else if(body.error) {
-            callback('unable to find location')
+            callback('Invalid address !! Unable to find location !!')
         } else {callback( undefined, {
              currentTemp:   body.current.temperature,
              feelsLikeTemp:   body.current.feelslike})
